@@ -1,0 +1,13 @@
+.card{
+    position: absolute;
+    left: 0;
+    margin: auto;
+    top: 100px;
+    right: 0;
+}
+input{
+    border: var(--bs-border-width) solid #393b3d;
+}
+.form-group{
+    margin-bottom: 10px;
+}

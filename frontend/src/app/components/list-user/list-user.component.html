@@ -1,0 +1,32 @@
+
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="container">
+    <div class="title">
+        <h4>Listado de Productos</h4>
+        <button routerLink="/add" routerLinkActive="router-link-active"  type="button" class="btn btn-outline-dark">Agregar Producto</button>
+    </div>
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Edad</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of listUser" class="table-light">
+        <td>{{i.nombre}}</td>
+        <td>{{i.apellido}}</td>
+        <td>{{i.edad }}</td>
+        <td>{{i.telefono}}</td>
+        <td>
+            <button routerLink="/edit/{{ i.id }}" type="button" class="btn btn-outline-info btn-sm">Edit</button>
+            <button (click)="deleteProduct(i.id)" type="button" class="btn btn-outline-secondary btn-sm ms-2">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<app-progress-bar *ngIf="loading"></app-progress-bar>
+<div *ngIf="!loading" class="row mt-1">
+    <div class="col-lg-4 offsetlg-4">
+        <div class="card border-primary mb-3" style="max-width: 25rem;">
+            <div class="card-header text-center">{{op}} Producto</div>
+            <div class="card-body">
+                <form [formGroup]="form" (ngSubmit)="addUser()">
+                    <input formControlName="nombre" type="text" class="form-control" placeholder="Nombre">
+                    <span *ngIf="form.get('nombre')?.hasError('required') && form.get('nombre')?.touched">El campo nombre es requerido</span>
+                    <input formControlName="apellido" type="text" class="form-control mt-2" placeholder="Apellido">
+                    <span *ngIf="form.get('apellido')?.hasError('required') && form.get('apellido')?.touched">El campo descripcion es requerido</span>
+                    <input formControlName="edad" type="number" class="form-control mt-2" placeholder="Edad">
+                    <span *ngIf="form.get('edad')?.hasError('required') && form.get('edad')?.touched">El campo precio es requerido</span>
+                    <input formControlName="telefono" type="number" class="form-control mt-2" placeholder="Telefono">
+                    <span *ngIf="form.get('telefono')?.hasError('required') && form.get('telefono')?.touched">El campo telefono es requerido</span>
+                    <div class="row mt-2 text-center">
+                        <div class="col-lg-6">
+                            <button routerLink="/users" type="button" class="btn btn-outline-secondary">Volver</button>
+                        </div>
+                        <div class="col-lg-6">
+                            <button [disabled]="form.invalid" type="submit" class="btn btn-outline-primary">Aceptar</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
